@@ -1,5 +1,6 @@
 import socket
 import sys
+import random
 
 IP_ADDRESS = '192.168.122.234'
 PORT = 5005
@@ -11,13 +12,13 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 sock.bind(("", PORT))
 
 #nama_file = ['hasil1.jpg','hasil2.jpg']
-count = 1
+count = random.randint(0,3)
+fp = open("hasil"+str(count)+".jpg", 'wb')
 while True:
     data, addr = sock.recvfrom(1024)
     print(addr)
     print("diterima ", data)
     print("dikirim oleh ", addr)
-    fp = open("hasil"+str(count)+".jpg", 'wb')
+
     fp.write(data)
-    count+=1
 
