@@ -14,7 +14,7 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 
 def kirim_semua():
     texec = dict()
-    list_file = ['tes.pdf','tes_progjar.pdf']
+    list_file = ['data.jpg','asteroid.png']
     status_task = dict()
     task = concurrent.futures.ThreadPoolExecutor(max_workers=4)
     catat_awal = datetime.datetime.now()
@@ -38,8 +38,8 @@ def kirimfile(list_file=0):
     if(list_file==0):
         print("Tidak ada file")
         exit(1)
-    file = open(list_file, 'r')
-    hasil = file.read()
+    file = open(list_file, 'rb')
+    hasil = file.read(1024)
     terkirim = 0
     for x in hasil:
         k_bytes = bytes([x])
