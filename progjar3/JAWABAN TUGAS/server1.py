@@ -22,3 +22,4 @@ while True:
 
     fp.write(data)
 
+fp.close()
