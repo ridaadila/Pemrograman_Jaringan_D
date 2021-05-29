@@ -10,8 +10,6 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 
 sock.bind(("", PORT))
 
-#sock.bind(((IP_ADDRESS,PORT)))
-
 nama_file = ['hasil1.pdf','hasil2.pdf']
 count = 0
 while True:
