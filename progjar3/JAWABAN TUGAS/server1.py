@@ -12,21 +12,14 @@ sock.bind(("", PORT))
 
 #sock.bind(((IP_ADDRESS,PORT)))
 
-nama_file = ['hasil_metodologi_penelitian.pdf','hasil_tes_progjar.pdf']
+nama_file = ['hasil1.pdf','hasil2.pdf']
+count = 0
+while True:
+    data, addr = sock.recvfrom(1024)
+    print(addr)
+    print("diterima ", data)
+    print("dikirim oleh ", addr)
+    fp = open(nama_file[count], 'w')
+    fp.write(data)
+    count+=1
 
-for i in range(len(nama_file)):
-    fp = open(nama_file[i],'wb')
-
-    while True:
-        data, addr = sock.recvfrom(1024)
-        print(addr)
-        print("diterima ", data)
-        print("dikirim oleh ", addr)
-        if(data):
-          fp.write(data)
-        elif(data==''):
-          fp.close()
-          break
-
-print("closing")
-sock.close()

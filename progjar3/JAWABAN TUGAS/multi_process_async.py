@@ -15,7 +15,7 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 
 def kirim_semua():
     texec = dict()
-    list_file = ['metodologi_penelitian.pdf','Architecture_Principles.docx']
+    list_file = ['tes.pdf','tes_progjar.pdf']
     status_task = dict()
     task_pool = Pool(processes=20) #2 task yang dapat dikerjakan secara simultan, dapat diset sesuai jumlah core
     catat_awal = datetime.datetime.now()
@@ -38,7 +38,7 @@ def kirimfile(list_file=0):
     if(list_file==0):
         print("Tidak ada file")
         exit(1)
-    file = open(list_file, 'rb')
+    file = open(list_file, 'r')
     hasil = file.read()
     terkirim = 0
     for x in hasil:

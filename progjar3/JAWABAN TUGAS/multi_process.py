@@ -13,7 +13,7 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 
 def kirim_semua():
     texec = dict()
-    list_file = ['metodologi_penelitian.pdf','Architecture_Principles.docx']
+    list_file = ['tes.pdf','tes_progjar.pdf']
     catat_awal = datetime.datetime.now()
     for k in range(len(list_file)):
         print(f"mendownload {list_file[k]}")
@@ -32,7 +32,7 @@ def kirimfile(list_file=0):
     if(list_file==0):
         print("Tidak ada file")
         exit(1)
-    file = open(list_file, 'rb')
+    file = open(list_file, 'r')
     hasil = file.read()
     terkirim = 0
     for x in hasil:
