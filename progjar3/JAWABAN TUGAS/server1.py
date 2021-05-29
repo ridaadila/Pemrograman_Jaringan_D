@@ -12,7 +12,7 @@ sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 sock.bind(("", PORT))
 
 #nama_file = ['hasil1.jpg','hasil2.jpg']
-count = random.randint(0,3)
+count = random.randint(1,2)
 fp = open("hasil"+str(count)+".jpg", 'wb')
 while True:
     data, addr = sock.recvfrom(1024)
