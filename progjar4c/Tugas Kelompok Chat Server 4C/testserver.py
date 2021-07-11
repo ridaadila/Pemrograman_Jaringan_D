@@ -17,19 +17,22 @@ class ServerForChatroom:
             if len(self.users) > 0:
                 try:
                     msg = client_data[1].recv(self.msg_size).decode()
-
+                    # self.hasil = msg.split('_')
+                    print("msg : ", msg)
+                    # print("hasil ", self.hasil[0])
                 except:
                     is_connected = False
                     self.users.remove(client_data)
-                if(str(msg)=="FILE"):
-                    f = open('hasil.txt', 'wb')
+                if(msg=="FILE"):
+                    # print(self.hasil[0])
+                    f = open('hasil.txt', 'w')
                     while True:
                         msg = client_data[1].recv(self.msg_size)
-                        while (msg):
-                            print
-                            "Receiving..."
+                        while(msg):
+                            print("Receiving...")
                             f.write(msg)
                             msg = client_data[1].recv(self.msg_size)
+                    # f.close()
                 else:
                     msg = f"{client_data[0]} : {msg}"
 
@@ -55,9 +58,10 @@ class ServerForChatroom:
 
             if user_taken:
                 continue
-
             for user in self.users:
+                print(user[1])
                 user[1].send(str.encode(f"{new_user} has entered the chat"))
+
 
             self.users.append((new_user, conn))
 

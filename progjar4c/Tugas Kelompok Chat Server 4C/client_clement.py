@@ -125,7 +125,7 @@ class ChatApplication():
 
     def send_file_to_server(self):
         self.s.send("FILE".encode())
-        self.s.send(str("client_" + os.path.basename(self.filename)).encode())
+        # self.s.send(("client_" + os.path.basename(self.filename)).encode())
         file = open(self.filename, "rb")
         print("Send : ", self.filename)
         data = file.read(1024)
